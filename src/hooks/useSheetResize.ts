@@ -49,7 +49,7 @@ function useSheetResize(
     const mouseDeltaY = invertValue(mouseCurrentY - mousePreviousY);
     const newHeight = currentHeight + mouseDeltaY;
 
-    const snapPointHeights = getSnapPointHeights(snapPoints, sheetElement);
+    const snapPointHeights = getSnapPointHeights(snapPoints);
     if (mouseDeltaY > 0 && !isMaximumHeight(currentHeight, snapPointHeights)) {
       setResizeHeight(newHeight);
       return;
@@ -69,7 +69,7 @@ function useSheetResize(
       return;
     }
 
-    const snapPointHeights = getSnapPointHeights(snapPoints, sheetElement);
+    const snapPointHeights = getSnapPointHeights(snapPoints);
     const closestSnapPoint = findClosestSnapPoint(snapPointHeights, resizeHeight);
 
     if (closestSnapPoint !== currentHeight) {

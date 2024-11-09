@@ -47,12 +47,10 @@ function useSheetManager(
 
   // SHEET HEIGHT
   useEffect(() => {
-    console.log('transitionHeight: ', transitionHeight);
     setSheetHeight(transitionHeight);
   }, [transitionHeight]);
 
   useEffect(() => {
-    console.log('resizeHeight: ', resizeHeight);
     setSheetHeight(resizeHeight);
   }, [resizeHeight]);
 

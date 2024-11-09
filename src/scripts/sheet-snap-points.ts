@@ -2,23 +2,13 @@ import { heightPercentToPixels } from '../helpers/sheetHeight';
 
 const SNAP_POINT_LARGE_HEIGHT = '95%';
 const SNAP_POINT_MEDIUM_HEIGHT = '55%';
-function getSnapPointHeight(
-  snapPoint: TSnapPoint,
-  sheetElement: Element | null
-): string | number {
-  if (!sheetElement) {
-    return SNAP_POINT_LARGE_HEIGHT;
-  }
-
+function getSnapPointHeight(snapPoint: TSnapPoint): string | number {
   switch (snapPoint) {
     case SnapPoint.large:
       return SNAP_POINT_LARGE_HEIGHT;
 
     case SnapPoint.medium:
       return SNAP_POINT_MEDIUM_HEIGHT;
-
-    case SnapPoint.fitContent:
-      return SNAP_POINT_LARGE_HEIGHT;
 
     default:
       return snapPoint;
@@ -37,22 +27,16 @@ export function getMainSnapPoint(
   sheetElement: Element | null
 ): number {
   const firstSnapPoint = snapPoints[0];
-  const firstSnapPointHeight = getSnapPointHeight(firstSnapPoint, sheetElement);
-  console.log('firstSnapPointHeight: ', firstSnapPointHeight);
+  const firstSnapPointHeight = getSnapPointHeight(firstSnapPoint);
 
   return parsePixels(firstSnapPointHeight);
 }
 
 const CLOSED_SNAP_POINT_VALUE = 0;
-export function getSnapPointHeights(
-  snapPoints: TSnapPoint[],
-  sheetElement: Element | null
-): number[] {
+export function getSnapPointHeights(snapPoints: TSnapPoint[]): number[] {
   const snapPointValues: Array<number | string> = [CLOSED_SNAP_POINT_VALUE];
 
-  snapPoints.forEach((snapPoint) =>
-    snapPointValues.push(getSnapPointHeight(snapPoint, sheetElement))
-  );
+  snapPoints.forEach((snapPoint) => snapPointValues.push(getSnapPointHeight(snapPoint)));
 
   const snapPointHeights: Array<number> = [];
   snapPointValues.forEach((value) => snapPointHeights.push(parsePixels(value)));

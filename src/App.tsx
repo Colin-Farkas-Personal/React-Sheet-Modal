@@ -15,12 +15,15 @@ function App() {
   return (
     <>
       <button onClick={openSheet}>Open sheet</button>
-      <Sheet isPresented={isSheetOpen} onClose={closeSheet} snapPoints={[SnapPoint.fitContent]}>
-        <div className="sheet-body">
-          <button type="button" className="dismiss-button" onClick={closeSheet}>
-            Dismiss
-          </button>
-        </div>
+      <Sheet
+        isPresented={isSheetOpen}
+        onClose={closeSheet}
+        snapPoints={[SnapPoint.medium, SnapPoint.large]}
+        scaleBackdrop="root"
+      >
+        <button type="button" className="dismiss-button" onClick={closeSheet}>
+          Dismiss
+        </button>
       </Sheet>
     </>
   );
