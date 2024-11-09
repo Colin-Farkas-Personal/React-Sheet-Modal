@@ -9,6 +9,10 @@
 
 A ReactJs library for displaying a sheet modal. A type of modal that is displayed from the bottom of the viewport and helps the user perform a scoped task that is closely related to their current context.
 
+## Motivation
+
+React Sheet Modal was created to give web users an equal experience of Apples` modal sheet, while also being simple easy to implement. The library is built with vanilla CSS. And, since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
+
 ## How to install
 
 Install the component using npm:
@@ -44,6 +48,34 @@ return (
   <div>
     <button onClick={openSheet}>Open sheet</button>
     <Sheet isPresented={isSheetOpen} onClose={closeSheet} />
+  </div>
+);
+```
+
+### Content
+
+The sheet is displayed as a blank modal. What content is displayed inside of it is fully in your controll.
+
+For example, to add a simple button that closes the sheet could look like the following:
+
+```tsx
+const [isSheetOpen, setIsSheetOpen] = useState(false);
+
+function openSheet() {
+  setIsSheetOpen(true);
+}
+function closeSheet() {
+  setIsSheetOpen(false);
+}
+
+return (
+  <div>
+    <button onClick={openSheet}>Open sheet</button>
+    <Sheet isPresented={isSheetOpen} onClose={closeSheet}>
+      <button type="button" onClick={() => setIsSheetOpen(false)}>
+        Close me
+      </button>
+    </Sheet>
   </div>
 );
 ```
@@ -104,7 +136,7 @@ If true, allows interaction with the background when the sheet is open
 
 ##### `boolean`
 
-If true, prevents the sheet from closing when the sheet is resized
+If true, prevents the sheet from closing while the sheet is resized
 
 ---
 
@@ -148,6 +180,19 @@ Content to be displayed inside the sheet.
 
 ## 🖌️ Styling
 
-The sheet comes with predefined colors and styles. It is designed to mimic the look and feel of the Apple (IOS) modal sheet and the Human Interface Guidlines.
+The sheet comes with predefined colors and styles. It is designed to mimic the look and feel of the Apple (IOS) modal sheet and follows the Human Interface Guidlines.
 
 Depending on your need, you can overwrite the existing `backgroundColor` and `borderRadius`. Or you can add your own `className` or `style` attributes to the sheet.
+
+The following example overwrites the `backgroundColor` and `borderRadius` to give the sheet more vibrant and playful design.
+
+```tsx
+return (
+  <Sheet
+    isPresented={isSheetOpen}
+    onClose={closeSheet}
+    backgroundColor={'rgb(130, 45, 225)'}
+    borderRadius="60px"
+  />
+);
+```
