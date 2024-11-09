@@ -1,6 +1,19 @@
+/* Lightmode */
 :root {
-  --sheet-base-background-color: rgb(240, 240, 240);
   --sheet-inner-padding: 1rem;
+
+  --sheet-base-background-color: rgb(247, 247, 247);
+  --sheet-base-inner-color--default: rgb(30, 30, 30);
+}
+
+/* Darkmode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sheet-inner-padding: 1rem;
+
+    --sheet-base-background-color: rgb(35, 35, 35);
+    --sheet-base-inner-color--default: rgb(255, 255, 255);
+  }
 }
 
 /* --- OVERLAY --- */
@@ -49,6 +62,9 @@
 .sheet-base-inner {
   height: 100%;
   padding: var(--sheet-inner-padding);
+}
+.sheet-base-inner * {
+  color: var(--sheet-base-inner-color--default);
 }
 
 .sheet-top-edge {

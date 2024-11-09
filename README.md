@@ -51,7 +51,7 @@ return (
 
 Use the available properties to customize the look and behaviour of the sheet.
 
-### ` isPresented` `(required)`
+### `isPresented` `(required)`
 
 ##### `boolean`
 

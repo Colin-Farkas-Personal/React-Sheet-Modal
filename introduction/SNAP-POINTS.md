@@ -40,17 +40,18 @@ return (
 
 Specifies the individual heights for the snap points.
 
+```ts
+type SnapPoint: 'large' | 'medium' | number;
+```
+
 By default, sheets support the `large` snap point. Adding the `medium` snap point allows the sheet to snap between both heights. Specifying only medium prevents the sheet from expanding to full height.
 
-It is also possible possible to add custom heights in `number`, specifying the height in pixels. Or you can use `fit-content` to set the snap point height based on the content of the sheet.
-
-```ts
-type SnapPoint: 'large' | 'medium' | number | 'fit-content';
-```
+It is also possible possible to add custom heights in `number`, specifying the height in pixels.
 
 #### Union types
 
-For the preexisting height intervals you can use either the SnapPoint object, or just the string literals.
+> 💡
+> For the preexisting height intervals you can use either the SnapPoint object, or just the string literal.
 
 `SnapPoint.large` - `"large"`
 
