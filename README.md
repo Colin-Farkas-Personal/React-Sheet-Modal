@@ -1,10 +1,10 @@
 ![Library Illustration](/introduction/images/reactLibraryIllustration.png 'Main Illustration')
 
-# React Sheet Modal
-
 ![NPM Version](https://img.shields.io/npm/v/:react-sheet-modal)
 
-`A Sheet Modal for ReactJs`
+# React Sheet Modal
+
+`A modal sheet for ReactJs - The IOS experience brought to the web`
 
 | ⭐️ Easy integration | 🛠️ Configurable | ⚡️ Zero Dependencies |
 | -------------------- | --------------- | --------------------- |
@@ -13,7 +13,7 @@ A ReactJs library for displaying a sheet modal. A type of modal that is displaye
 
 ## Motivation
 
-React Sheet Modal was created to give web users an equal experience to that of Apples` modal sheet, while also being easy to implement and use. The library uses vanilla CSS. And, since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
+React Sheet Modal was created to give web users an equal experience to that of Apples' modal sheet, while also being easy to implement and use. The library uses vanilla CSS. And, since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
 
 ## How to install
 
@@ -190,7 +190,7 @@ return (
   <Sheet
     isPresented={isSheetOpen}
     onClose={closeSheet}
-    backgroundColor={'rgb(130, 45, 225)'}
+    backgroundColor={'rgb(100, 55, 155)'}
     borderRadius="60px"
   />
 );

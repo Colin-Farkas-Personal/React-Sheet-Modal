@@ -8,6 +8,7 @@ import {
 } from '../scripts/sheet-snap-points';
 import { invertValue } from '../utilities/invertValue';
 import useSheetEventListeners from './useSheetEventListeners';
+import { enableTargetAction, preventTargetAction } from '../helpers/preventTargetAction';
 
 type ResizeSnapPointTargetHeight = { targetHeight: number };
 
@@ -78,7 +79,7 @@ function useSheetResize(
   }
 
   // Start the resize
-  function startResize() {
+  function startResize(event: Event) {
     if (!isPresented) {
       return;
     }
@@ -93,6 +94,8 @@ function useSheetResize(
       return;
     }
 
+    preventTargetAction(event);
+
     if (mouseCurrentY !== 0) {
       setMousePreviousY(mouseCurrentY);
     }
@@ -104,6 +107,7 @@ function useSheetResize(
 
   // Reset the resize height
   function resetResize() {
+    enableTargetAction();
     setIsMouseDown(false);
     setMouseCurrentY(0);
     setMousePreviousY(0);
