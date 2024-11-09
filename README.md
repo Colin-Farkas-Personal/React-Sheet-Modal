@@ -1,6 +1,6 @@
 # React Sheet Modal
 
-![Library Illustration](./images/reactLibraryIllustration.png 'Main Illustration')
+![Library Illustration](/introduction/images/reactLibraryIllustration.png 'Main Illustration')
 
 `A Sheet Modal for ReactJs`
 
@@ -67,7 +67,7 @@ Callback function that is called when the sheet is closed
 
 ---
 
-### [`snapPoints`](SNAP-POINTS.md#snap-point)
+### [`snapPoints`](/introduction/SNAP-POINTS.md#snap-point)
 
 ##### `SnapPoint[]`
 
