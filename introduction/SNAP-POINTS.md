@@ -1,4 +1,4 @@
-[<- Go back to main page](README.md)
+[<- Go back to main page](../README.md)
 
 #### `property`
 

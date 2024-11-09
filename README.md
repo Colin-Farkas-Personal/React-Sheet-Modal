@@ -18,7 +18,7 @@ React Sheet Modal was created to give web users an equal experience of Apples` m
 Install the component using npm:
 
 ```node
-npm install react-sheet-modal
+npm i react-sheet-modal
 ```
 
 ## Table of contents
