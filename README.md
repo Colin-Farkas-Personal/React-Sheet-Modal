@@ -22,8 +22,9 @@ npm install react-sheet-modal
 - [How to install](#how-to-install)
 - [How to use](#how-to-use)
 - [Properties](#properties)
+- [Styling](#styling)
 
-## How to use
+## 🧱 How to use
 
 The **Sheet.tsx** component is similarily structured to its SwiftUI counterpart and is easily implemented with ones project.
 
@@ -91,7 +92,7 @@ When included, adds the effect of scaling the backdrop when the sheet is open
 
 ---
 
-### `backgroundInteractionEnabled`
+### [`backgroundInteractionEnabled`](/introduction/BACKGROUND-INTERACTION-ENABLED.md)
 
 ##### `boolean`
 
@@ -144,3 +145,9 @@ Overwrite the style attribute of the sheet
 ##### `ReactNode`
 
 Content to be displayed inside the sheet.
+
+## 🖌️ Styling
+
+The sheet comes with predefined colors and styles. It is designed to mimic the look and feel of the Apple (IOS) modal sheet and the Human Interface Guidlines.
+
+Depending on your need, you can overwrite the existing `backgroundColor` and `borderRadius`. Or you can add your own `className` or `style` attributes to the sheet.
