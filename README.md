@@ -2,6 +2,8 @@
 
 ![Library Illustration](/introduction/images/reactLibraryIllustration.png 'Main Illustration')
 
+![NPM Version](https://img.shields.io/npm/v/:react-sheet-modal)
+
 `A Sheet Modal for ReactJs`
 
 | ⭐️ Easy integration | 🛠️ Configurable | ⚡️ Zero Dependencies |
@@ -23,7 +25,6 @@ npm i react-sheet-modal
 
 ## Table of contents
 
-- [How to install](#how-to-install)
 - [How to use](#how-to-use)
 - [Properties](#properties)
 - [Styling](#styling)
@@ -180,9 +181,7 @@ Content to be displayed inside the sheet.
 
 ## 🖌️ Styling
 
-The sheet comes with predefined colors and styles. It is designed to mimic the look and feel of the Apple (IOS) modal sheet and follows the Human Interface Guidlines.
-
-Depending on your need, you can overwrite the existing `backgroundColor` and `borderRadius`. Or you can add your own `className` or `style` attributes to the sheet.
+The sheet has a default styling that is designed to mimic the look and feel of the Apple (IOS) modal sheet and follows the Human Interface Guidlines. It is possible to overwrite this design, by setting `backgroundColor` and `borderRadius`. Or you can add your own `className` or `style` attributes to the sheet.
 
 The following example overwrites the `backgroundColor` and `borderRadius` to give the sheet more vibrant and playful design.
 

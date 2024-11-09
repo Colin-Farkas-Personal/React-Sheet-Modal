@@ -20,6 +20,8 @@ function App() {
         onClose={closeSheet}
         snapPoints={[SnapPoint.medium, SnapPoint.large]}
         scaleBackdrop="root"
+        backgroundColor={'rgb(100, 55, 155)'}
+        borderRadius="60px"
       >
         <button type="button" className="dismiss-button" onClick={closeSheet}>
           Dismiss
