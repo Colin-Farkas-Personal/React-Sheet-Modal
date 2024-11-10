@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
+import { enableIsTargetScrolling, isTargetScrolling } from '../helpers/isTargetScrolling';
+import { enableTargetAction } from '../helpers/preventTargetAction';
+import {
+  disableTargetScrolling,
+  enableTargetScrolling,
+} from '../helpers/preventTargetScrolling';
 import {
   findClosestSnapPoint,
+  findLargestSnapPoint,
   getSnapPointHeights,
   isMaximumHeight,
   isMinimumHeight,
@@ -8,7 +15,6 @@ import {
 } from '../scripts/sheet-snap-points';
 import { invertValue } from '../utilities/invertValue';
 import useSheetEventListeners from './useSheetEventListeners';
-import { enableTargetAction, preventTargetAction } from '../helpers/preventTargetAction';
 
 type ResizeSnapPointTargetHeight = { targetHeight: number };
 
@@ -89,12 +95,21 @@ function useSheetResize(
 
   // Run the resize
   function resize(event: Event) {
-    if (!isMouseDown) {
-      event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
-      return;
+    // preventTargetAction(event);
+    const snapPointHeights = getSnapPointHeights(snapPoints);
+    const largestSnapPoint = findLargestSnapPoint(snapPointHeights);
+    if (resizeHeight < largestSnapPoint - 50) {
+      console.log('Too small');
+      disableTargetScrolling(event);
+    } else if (resizeHeight >= largestSnapPoint - 50) {
+      console.log('TOO BIG!!!');
+      enableTargetScrolling(event);
     }
 
-    preventTargetAction(event);
+    if (!isMouseDown || isTargetScrolling(event)) {
+      // event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
+      return;
+    }
 
     if (mouseCurrentY !== 0) {
       setMousePreviousY(mouseCurrentY);
@@ -108,6 +123,8 @@ function useSheetResize(
   // Reset the resize height
   function resetResize(event: Event) {
     enableTargetAction(event);
+    enableIsTargetScrolling();
+
     setIsMouseDown(false);
     setMouseCurrentY(0);
     setMousePreviousY(0);

@@ -22,10 +22,7 @@ export const SnapPoint = {
 } as const;
 export type TSnapPoint = (typeof SnapPoint)[keyof typeof SnapPoint] | number;
 
-export function getMainSnapPoint(
-  snapPoints: TSnapPoint[],
-  sheetElement: Element | null
-): number {
+export function getMainSnapPoint(snapPoints: TSnapPoint[]): number {
   const firstSnapPoint = snapPoints[0];
   const firstSnapPointHeight = getSnapPointHeight(firstSnapPoint);
 
@@ -74,6 +71,19 @@ export function findSmallestSnapPoint(
   }
 
   return Math.min(...snapPointHeightsCopy);
+}
+
+export function findLargestSnapPoint(
+  snapPointHeights: number[],
+  excludeClosed: boolean = true
+): number {
+  let snapPointHeightsCopy = [...snapPointHeights];
+
+  if (excludeClosed) {
+    snapPointHeightsCopy = snapPointHeights.filter((p) => p !== CLOSED_SNAP_POINT_VALUE);
+  }
+
+  return Math.max(...snapPointHeightsCopy);
 }
 
 function parsePixels(value: string | number): number {

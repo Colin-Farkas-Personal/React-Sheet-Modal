@@ -61,9 +61,9 @@
 
 .sheet-base-inner {
   height: 100%;
-  padding: var(--sheet-inner-padding);
 }
 .sheet-base-inner * {
+  padding: var(--sheet-inner-padding);
   color: var(--sheet-base-inner-color--default);
 }
 
@@ -92,8 +92,10 @@
 
 .sheet-body {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 
   height: 100%;
+  font-size: 64px;
+  overflow-y: scroll;
 }

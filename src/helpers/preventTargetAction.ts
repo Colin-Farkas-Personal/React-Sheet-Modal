@@ -12,8 +12,10 @@ export function preventTargetAction(event: Event) {
     return;
   }
 
-  eventTarget.style.pointerEvents = 'none';
-  currentTargetDisabled = eventTarget;
+  if (eventTarget.hasAttribute('type')) {
+    eventTarget.style.pointerEvents = 'none';
+    currentTargetDisabled = eventTarget;
+  }
 }
 
 export function enableTargetAction(event: Event) {
