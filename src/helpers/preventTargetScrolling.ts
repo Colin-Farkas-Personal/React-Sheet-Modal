@@ -1,9 +1,9 @@
 export function disableTargetScrolling(event: Event) {
   const eventTargetElement = event.target as HTMLElement;
-  eventTargetElement.style.overflow = 'hidden';
+  eventTargetElement.style.overflowY = 'hidden';
 }
 
 export function enableTargetScrolling(event: Event) {
   const eventTargetElement = event.target as HTMLElement;
-  eventTargetElement.style.overflow = 'scroll';
+  eventTargetElement.style.overflowY = 'scroll';
 }
