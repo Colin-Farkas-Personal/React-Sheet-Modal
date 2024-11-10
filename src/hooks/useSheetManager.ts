@@ -56,7 +56,9 @@ function useSheetManager(
 
   // SHEET TRANSITION
   useEffect(() => {
-    runSheetTransition(resizeHeight, resizeSnapPointTargetHeight.targetHeight);
+    if (isPresented) {
+      runSheetTransition(resizeHeight, resizeSnapPointTargetHeight.targetHeight);
+    }
   }, [resizeSnapPointTargetHeight]);
 
   useEffect(() => {

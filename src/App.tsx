@@ -9,7 +9,6 @@ function App() {
     setIsSheetOpen(true);
   }
   function closeSheet() {
-    console.log('CLOSED!');
     setIsSheetOpen(false);
   }
 

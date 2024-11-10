@@ -106,8 +106,8 @@ function useSheetResize(
   }
 
   // Reset the resize height
-  function resetResize() {
-    enableTargetAction();
+  function resetResize(event: Event) {
+    enableTargetAction(event);
     setIsMouseDown(false);
     setMouseCurrentY(0);
     setMousePreviousY(0);
