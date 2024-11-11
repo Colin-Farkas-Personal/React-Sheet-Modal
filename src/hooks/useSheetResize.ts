@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react';
-import { enableIsTargetScrolling, isTargetScrolling } from '../helpers/isTargetScrolling';
 import { enableTargetAction } from '../helpers/preventTargetAction';
-import {
-  disableTargetScrolling,
-  enableTargetScrolling,
-} from '../helpers/preventTargetScrolling';
 import {
   findClosestSnapPoint,
   findLargestSnapPoint,
@@ -15,6 +10,11 @@ import {
 } from '../scripts/sheet-snap-points';
 import { invertValue } from '../utilities/invertValue';
 import useSheetEventListeners from './useSheetEventListeners';
+import {
+  disableContentScrolling,
+  enableContentScrolling,
+  isContentScrollTop,
+} from '../helpers/contentScrolling';
 
 type ResizeSnapPointTargetHeight = { targetHeight: number };
 
@@ -95,18 +95,24 @@ function useSheetResize(
 
   // Run the resize
   function resize(event: Event) {
+    // 1. ResizeHeight < MAX -> NO CHILD SCROLL
+    // 2. ResizeHeight >= MAX -> ALLOW CHILD SCROLL
+    // 3. (ResizeHeight >= MAX) && (ScrollTop > 0) -> NO PARENT SCROLL
     // preventTargetAction(event);
     const snapPointHeights = getSnapPointHeights(snapPoints);
     const largestSnapPoint = findLargestSnapPoint(snapPointHeights);
+    let canResize = true;
     if (resizeHeight < largestSnapPoint - 50) {
-      console.log('Too small');
-      disableTargetScrolling(event);
+      console.log('disable scroll');
+      disableContentScrolling(event);
     } else if (resizeHeight >= largestSnapPoint - 50) {
-      console.log('TOO BIG!!!');
-      enableTargetScrolling(event);
+      console.log('enable scroll');
+      enableContentScrolling(event);
+      canResize = isContentScrollTop(event);
     }
 
-    if (!isMouseDown || isTargetScrolling(event)) {
+    if (!isMouseDown || !canResize) {
+      console.log('content is top!');
       // event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
       return;
     }
@@ -123,8 +129,6 @@ function useSheetResize(
   // Reset the resize height
   function resetResize(event: Event) {
     enableTargetAction(event);
-    enableIsTargetScrolling();
-
     setIsMouseDown(false);
     setMouseCurrentY(0);
     setMousePreviousY(0);

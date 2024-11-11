@@ -52,9 +52,14 @@
   background-color: var(--sheet-base-background-color);
 
   cursor: grab;
-  overscroll-behavior-y: contain; /* prevent from reloading the page when resizing the sheet */
   touch-action: none; /* prevent the whole page from moving when dragging the sheet */
 }
+
+/* prevent from reloading the page when resizing the sheet */
+html:has(#sheetBase) {
+  overscroll-behavior: none;
+}
+
 .sheet-base * {
   user-select: none;
 }
