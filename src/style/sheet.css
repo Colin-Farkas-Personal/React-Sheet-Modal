@@ -50,14 +50,19 @@
   border-radius: 20px 20px 0 0;
 
   background-color: var(--sheet-base-background-color);
+  overflow: hidden;
 
   cursor: grab;
   touch-action: none; /* prevent the whole page from moving when dragging the sheet */
+  overscroll-behavior: none;
 }
 
 /* prevent from reloading the page when resizing the sheet */
-html:has(#sheetBase) {
-  overscroll-behavior: none;
+html:has(#sheetBase),
+body:has(#sheetBase),
+#root:has(#sheetBase) {
+  overscroll-behavior: none; /* Prevent page from moving when scrolling */
+  touch-action: none; /* Prevent a drag resulting in a page reload*/
 }
 
 .sheet-base * {
@@ -71,6 +76,11 @@ html:has(#sheetBase) {
   padding: var(--sheet-inner-padding);
   color: var(--sheet-base-inner-color--default);
 }
+/*.sheet-base-inner > * {
+  overflow-y: scroll;
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}*/
 
 .sheet-top-edge {
   position: absolute;
@@ -95,6 +105,11 @@ html:has(#sheetBase) {
   background-color: rgb(172, 172, 172);
 }
 
+.sheet-body-content-fixed {
+  overflow-y: hidden !important;
+}
+
+/* - - - - - APP INTEGRATION - - - - - */
 .sheet-body {
   display: flex;
   align-items: flex-start;
@@ -102,5 +117,6 @@ html:has(#sheetBase) {
 
   height: 100%;
   font-size: 64px;
+
   overflow-y: scroll;
 }

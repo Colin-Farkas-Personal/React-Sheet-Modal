@@ -1,14 +1,15 @@
-import React, { CSSProperties, useEffect, useState } from 'react';
+import React, { CSSProperties, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
-import useSheetManager from '../../hooks/useSheetManager';
-import { SnapPoint, TSnapPoint } from '../../scripts/sheet-snap-points';
-import '../../style/sheet.css';
+import { useElementContext } from '../../contexts/elementContext';
 import {
   getOverlayClassNames,
   getOverlayStyle,
   getSheetClassNames,
   getSheetStyle,
 } from '../../helpers/sheetAttributes';
+import useSheetManager from '../../hooks/useSheetManager';
+import { SnapPoint, TSnapPoint } from '../../scripts/sheet-snap-points';
+import '../../style/sheet.css';
 
 interface SheetProps {
   isPresented: boolean;
@@ -55,11 +56,8 @@ function Sheet({
   style,
   children,
 }: SheetProps) {
-  const [sheetElement, setSheetElement] = useState<Element | null>(null);
-  const [sheetOverlayElement, setSheetOverlayElement] = useState<Element | null>(null);
+  const { sheetOverlayRef, sheetElementRef, sheetBaseInnerRef } = useElementContext();
   const { sheetHeight, sheetOverlayOpacity, isSheetClosed, closeSheet } = useSheetManager(
-    sheetElement,
-    sheetOverlayElement,
     scaleBackdrop,
     snapPoints,
     isPresented,
@@ -93,15 +91,17 @@ function Sheet({
     <>
       <span
         id="sheetOverlay"
-        ref={setSheetOverlayElement}
+        ref={sheetOverlayRef}
         className={overlayClassNames}
         onClick={closeSheet}
         style={overlayStyle}
       />
 
-      <div id="sheetBase" ref={setSheetElement} className={sheetClassNames} style={sheetStyle}>
+      <div id="sheetBase" ref={sheetElementRef} className={sheetClassNames} style={sheetStyle}>
         {showGrabber && <span className="sheet-top-edge" />}
-        <div className="sheet-base-inner">{children}</div>
+        <div ref={sheetBaseInnerRef} id="sheetBaseInner" className="sheet-base-inner">
+          {children}
+        </div>
       </div>
     </>,
     document.body // Render sheet outside root

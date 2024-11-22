@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
 import { getMainSnapPoint, TSnapPoint } from '../scripts/sheet-snap-points';
-import useSheetResize from './useSheetResize';
-import useSheetTransition from './useSheetTransition';
-import { useSheetStyle } from './useSheetStyle';
 import { toFixedFloat } from '../utilities/toFixed';
+import useSheetResize from './useSheetResize';
+import { useSheetStyle } from './useSheetStyle';
+import useSheetTransition from './useSheetTransition';
 
 function useSheetManager(
-  sheetElement: Element | null,
-  sheetOverlayElement: Element | null,
   rootElementId: string | boolean,
   snapPoints: TSnapPoint[],
   isPresented: boolean,
   preventCloseOnResize: boolean,
   callbackOnClose: () => void
 ) {
-  const sheetMainSnapPoint = getMainSnapPoint(snapPoints, sheetElement);
+  const sheetMainSnapPoint = getMainSnapPoint(snapPoints);
   const [sheetHeight, setSheetHeight] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -31,8 +29,6 @@ function useSheetManager(
     isPresented,
     snapPoints,
     preventCloseOnResize,
-    sheetElement,
-    sheetOverlayElement
   );
 
   const { sheetOverlayOpacity } = useSheetStyle(sheetHeight, snapPoints, rootElementId);

@@ -1,27 +1,15 @@
-export function disableContentScrolling(event: Event) {
-  const eventTargetElement = event.target as HTMLElement;
+import { RefObject } from "react";
 
-  const isScrollableY = getComputedStyle(eventTargetElement).overflowY === 'scroll';
-  const isScrollable = getComputedStyle(eventTargetElement).overflow === 'scroll';
+export function disableContentScrolling(sheetBaseInner: RefObject<HTMLElement>) {
+  const firstChild = sheetBaseInner.current?.children[0];
 
-  if (isScrollable || isScrollableY) {
-    eventTargetElement.style.overflowY = 'hidden';
-  }
-
-  return;
+  firstChild?.classList.add('sheet-body-content-fixed');
 }
 
-export function enableContentScrolling(event: Event) {
-  const eventTargetElement = event.target as HTMLElement;
+export function enableContentScrolling(sheetBaseInner: RefObject<HTMLElement>) {
+  const firstChild = sheetBaseInner.current?.children[0];
 
-  const isScrollableY = getComputedStyle(eventTargetElement).overflowY === 'hidden';
-  const isScrollable = getComputedStyle(eventTargetElement).overflow === 'hidden';
-
-  if (isScrollable || isScrollableY) {
-    eventTargetElement.style.overflowY = 'scroll';
-  }
-
-  return;
+  firstChild?.classList.remove('sheet-body-content-fixed');
 }
 
 export function isContentScrollTop(event: Event) {

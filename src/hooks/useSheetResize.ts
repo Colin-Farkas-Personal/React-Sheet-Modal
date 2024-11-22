@@ -15,6 +15,7 @@ import {
   enableContentScrolling,
   isContentScrollTop,
 } from '../helpers/contentScrolling';
+import { useElementContext } from '../contexts/elementContext';
 
 type ResizeSnapPointTargetHeight = { targetHeight: number };
 
@@ -23,11 +24,16 @@ function useSheetResize(
   isPresented: boolean,
   snapPoints: TSnapPoint[],
   preventCloseOnResize: boolean,
-  sheetElement: Element | null,
-  sheetOverlayElement: Element | null
 ) {
+  const { sheetOverlayRef, sheetElementRef, sheetBaseInnerRef } = useElementContext();
   const [resizeHeight, setResizeHeight] = useState<number>(currentHeight);
-  useSheetEventListeners(sheetElement, sheetOverlayElement, startResize, resize, resetResize);
+  useSheetEventListeners(
+    sheetElementRef.current,
+    sheetOverlayRef.current,
+    startResize,
+    resize,
+    resetResize
+  );
 
   const [resizeSnapPointTargetHeight, setResizeSnapPointTargetHeight] =
     useState<ResizeSnapPointTargetHeight>({ targetHeight: 0 });
@@ -101,18 +107,14 @@ function useSheetResize(
     // preventTargetAction(event);
     const snapPointHeights = getSnapPointHeights(snapPoints);
     const largestSnapPoint = findLargestSnapPoint(snapPointHeights);
-    let canResize = true;
-    if (resizeHeight < largestSnapPoint - 50) {
-      console.log('disable scroll');
-      disableContentScrolling(event);
-    } else if (resizeHeight >= largestSnapPoint - 50) {
-      console.log('enable scroll');
-      enableContentScrolling(event);
-      canResize = isContentScrollTop(event);
+
+    if (resizeHeight >= largestSnapPoint) {
+      enableContentScrolling(sheetBaseInnerRef);
+    } else if (resizeHeight < largestSnapPoint) {
+      disableContentScrolling(sheetBaseInnerRef);
     }
 
-    if (!isMouseDown || !canResize) {
-      console.log('content is top!');
+    if (!isMouseDown || !isContentScrollTop(event)) {
       // event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
       return;
     }
@@ -128,7 +130,7 @@ function useSheetResize(
 
   // Reset the resize height
   function resetResize(event: Event) {
-    enableTargetAction(event);
+    enableTargetAction(event); // Disables buttons from triggering while sheet is being resized
     setIsMouseDown(false);
     setMouseCurrentY(0);
     setMousePreviousY(0);
