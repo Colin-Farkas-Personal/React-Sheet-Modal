@@ -23,6 +23,7 @@ function App() {
         showGrabber
       >
         <div className="sheet-body">
+          <button onClick={closeSheet}>Close sheet...</button>
           <ul>
             <li>1</li>
             <li>2</li>

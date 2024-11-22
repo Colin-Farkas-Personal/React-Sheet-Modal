@@ -23,6 +23,7 @@ export function isContentScrollTop(event: Event) {
   return true;
 }
 
+const MAX_HEIGHT_MARGIN = 1;
 export function updateScrolling(
   snapPoints: TSnapPoint[],
   resizeHeight: number,
@@ -39,7 +40,7 @@ export function updateScrolling(
   const snapPointHeights = getSnapPointHeights(snapPoints);
   const largestSnapPoint = findLargestSnapPoint(snapPointHeights);
 
-  if (resizeHeight >= largestSnapPoint) {
+  if (resizeHeight >= largestSnapPoint - MAX_HEIGHT_MARGIN) {
     enableContentScrolling(sheetBaseInnerElement);
   } else if (resizeHeight < largestSnapPoint) {
     disableContentScrolling(sheetBaseInnerElement);

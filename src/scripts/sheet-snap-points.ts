@@ -41,6 +41,17 @@ export function getSnapPointHeights(snapPoints: TSnapPoint[]): number[] {
   return snapPointHeights;
 }
 
+export function getSnapPointHeightsOrdered(snapPoints: TSnapPoint[]): number[] {
+  const snapPointValues: Array<number | string> = [CLOSED_SNAP_POINT_VALUE];
+
+  snapPoints.forEach((snapPoint) => snapPointValues.push(getSnapPointHeight(snapPoint)));
+
+  const snapPointHeights: Array<number> = [];
+  snapPointValues.forEach((value) => snapPointHeights.push(parsePixels(value)));
+
+  return snapPointHeights.sort((a, b) => a - b);;
+}
+
 // [0, 410.85, 709.65]
 export function findClosestSnapPoint(
   snapPointHeights: number[],

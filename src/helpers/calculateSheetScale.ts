@@ -5,23 +5,25 @@ import { toDecimalPercent } from '../utilities/toPercent';
 interface CaclulateSheetScalePercent {
   snapPoints: TSnapPoint[];
   currentSheetHeight: number;
+  targetSnapPointIndex: number;
   targetPercent: number;
 }
 export function calculateSheetScalePercent({
   snapPoints,
   currentSheetHeight,
+  targetSnapPointIndex,
   targetPercent,
 }: CaclulateSheetScalePercent): number {
   const snapPointHeights = getSnapPointHeights(snapPoints);
   const snapPointHeightsOrdered = snapPointHeights.sort((a, b) => a - b);
 
-  const secondToLastHeight = snapPointHeightsOrdered[snapPointHeightsOrdered.length - 2];
+  const targetSnapPointHeight = snapPointHeightsOrdered[targetSnapPointIndex];
   const lastHeight = snapPointHeightsOrdered[snapPointHeightsOrdered.length - 1];
 
-  if (currentSheetHeight >= secondToLastHeight) {
+  if (currentSheetHeight >= targetSnapPointHeight) {
     const normalizedPercent =
-      toDecimalPercent(currentSheetHeight - secondToLastHeight) /
-      (lastHeight - secondToLastHeight);
+      toDecimalPercent(currentSheetHeight - targetSnapPointHeight) /
+      (lastHeight - targetSnapPointHeight);
 
     return toFixedFloat(1 - normalizedPercent * targetPercent, 4); // 4 decimal places for smoother scaling
   }
@@ -32,18 +34,19 @@ export function calculateSheetScalePercent({
 export function calculateSheetScaleRadiusPercent({
   snapPoints,
   currentSheetHeight,
+  targetSnapPointIndex,
   targetPercent,
 }: CaclulateSheetScalePercent): number {
   const snapPointHeights = getSnapPointHeights(snapPoints);
   const snapPointHeightsOrdered = snapPointHeights.sort((a, b) => a - b);
 
-  const secondToLastHeight = snapPointHeightsOrdered[snapPointHeightsOrdered.length - 2];
+  const targetSnapPointHeight = snapPointHeightsOrdered[targetSnapPointIndex];
   const lastHeight = snapPointHeightsOrdered[snapPointHeightsOrdered.length - 1];
 
-  if (currentSheetHeight >= secondToLastHeight) {
+  if (currentSheetHeight >= targetSnapPointHeight) {
     const normalizedPercent =
-      toDecimalPercent(currentSheetHeight - secondToLastHeight) /
-      (lastHeight - secondToLastHeight);
+      toDecimalPercent(currentSheetHeight - targetSnapPointHeight) /
+      (lastHeight - targetSnapPointHeight);
 
     return toFixedFloat(normalizedPercent * targetPercent, 4);
   }

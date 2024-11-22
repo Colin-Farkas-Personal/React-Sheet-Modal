@@ -31,7 +31,7 @@ function useSheetManager(
     preventCloseOnResize,
   );
 
-  const { sheetOverlayOpacity } = useSheetStyle(sheetHeight, snapPoints, rootElementId);
+  const { sheetOverlayOpacity } = useSheetStyle(isPresented, isTransitionAnimating, sheetHeight, snapPoints, rootElementId);
 
   function closeSheet() {
     if (isAnimating || preventCloseOnResize) {
