@@ -1,21 +1,19 @@
 import { useEffect, useState } from 'react';
+import { useElementContext } from '../contexts/elementContext';
+import {
+  isContentScrollTop,
+  updateScrolling
+} from '../helpers/contentScrolling';
 import { enableTargetAction } from '../helpers/preventTargetAction';
 import {
   findClosestSnapPoint,
-  findLargestSnapPoint,
   getSnapPointHeights,
   isMaximumHeight,
   isMinimumHeight,
-  TSnapPoint,
+  TSnapPoint
 } from '../scripts/sheet-snap-points';
 import { invertValue } from '../utilities/invertValue';
 import useSheetEventListeners from './useSheetEventListeners';
-import {
-  disableContentScrolling,
-  enableContentScrolling,
-  isContentScrollTop,
-} from '../helpers/contentScrolling';
-import { useElementContext } from '../contexts/elementContext';
 
 type ResizeSnapPointTargetHeight = { targetHeight: number };
 
@@ -45,6 +43,7 @@ function useSheetResize(
   // Sync the height with the current height
   useEffect(() => {
     setResizeHeight(currentHeight);
+    updateScrolling(snapPoints, resizeHeight, sheetBaseInnerRef.current)
   }, [currentHeight]);
 
   // Update the height
@@ -91,7 +90,7 @@ function useSheetResize(
   }
 
   // Start the resize
-  function startResize(event: Event) {
+  function startResize() {
     if (!isPresented) {
       return;
     }
@@ -101,19 +100,6 @@ function useSheetResize(
 
   // Run the resize
   function resize(event: Event) {
-    // 1. ResizeHeight < MAX -> NO CHILD SCROLL
-    // 2. ResizeHeight >= MAX -> ALLOW CHILD SCROLL
-    // 3. (ResizeHeight >= MAX) && (ScrollTop > 0) -> NO PARENT SCROLL
-    // preventTargetAction(event);
-    const snapPointHeights = getSnapPointHeights(snapPoints);
-    const largestSnapPoint = findLargestSnapPoint(snapPointHeights);
-
-    if (resizeHeight >= largestSnapPoint) {
-      enableContentScrolling(sheetBaseInnerRef);
-    } else if (resizeHeight < largestSnapPoint) {
-      disableContentScrolling(sheetBaseInnerRef);
-    }
-
     if (!isMouseDown || !isContentScrollTop(event)) {
       // event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
       return;
