@@ -1,4 +1,4 @@
-import React, { CSSProperties, useRef, useState } from 'react';
+import React, { CSSProperties } from 'react';
 import ReactDOM from 'react-dom';
 import { useElementContext } from '../../contexts/elementContext';
 import {

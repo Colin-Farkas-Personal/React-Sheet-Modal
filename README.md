@@ -141,22 +141,6 @@ If true, prevents the sheet from closing while the sheet is resized
 
 ---
 
-### `backgroundColor`
-
-##### `CSSProperties['backgroundColor']`
-
-Sets the background color of the sheet
-
----
-
-### `borderRadius`
-
-##### `string`
-
-Sets the roundness of the corners of the sheet
-
----
-
 ### `className`
 
 ##### `string`
@@ -181,17 +165,45 @@ Content to be displayed inside the sheet.
 
 ## 🖌️ Styling
 
-The sheet has a default styling that is designed to mimic the look and feel of the Apple (IOS) modal sheet and follows the Human Interface Guidlines. It is possible to overwrite this design, by setting `backgroundColor` and `borderRadius`. Or you can add your own `className` or `style` attributes to the sheet.
+The sheet has a default styling that is designed to mimic the look and feel of the Apple (IOS) modal sheet and follows the Human Interface Guidlines. To overwrite this design, you can update the `css variables` or add your own `className` or `style` attributes to the sheet.
 
-The following example overwrites the `backgroundColor` and `borderRadius` to give the sheet more vibrant and playful design.
+### CSS Variables
 
-```tsx
-return (
-  <Sheet
-    isPresented={isSheetOpen}
-    onClose={closeSheet}
-    backgroundColor={'rgb(100, 55, 155)'}
-    borderRadius="60px"
-  />
-);
+Use the CSS variables to change specific style attributes of the sheet.
+
+In your own css or stylesheet include any of the below variables as a `:root` style variable.
+
+```css
+:root {
+  --sheet-inner-padding: 1rem;
+  --sheet-base-border-radius: 1.25rem;
+  --sheet-base-bg-color: rgb(247, 247, 247);
+}
+```
+> 💡 The values in the above code snippet are the default set values for the sheet.
+
+---
+
+#### Sheet padding
+
+Overwrite the padding of the sheet.
+
+```css
+--sheet-inner-padding: <size-unit>;
+```
+
+#### Background color
+
+Overwrite the background color of the sheet.
+
+```css
+--sheet-base-bg-color: <color-unit>;
+```
+
+#### Border radius
+
+Overwrite the border radius of the sheet
+
+```css
+--sheet-base-border-radius: <size-unit>;
 ```
