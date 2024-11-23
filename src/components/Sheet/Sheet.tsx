@@ -50,8 +50,6 @@ function Sheet({
   backgroundInteractionEnabled = false,
   showGrabber = false,
   preventCloseOnResize = false,
-  backgroundColor,
-  borderRadius,
   className = '',
   style,
   children,
@@ -81,8 +79,6 @@ function Sheet({
 
   const sheetClassNames = getSheetClassNames({ className: className });
   const sheetStyle = getSheetStyle({
-    backgroundColor: backgroundColor,
-    borderRadius: borderRadius,
     sheetHeight: sheetHeight,
     style: style,
   });

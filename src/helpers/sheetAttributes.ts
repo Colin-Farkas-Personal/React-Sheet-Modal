@@ -49,22 +49,15 @@ export function getSheetClassNames({ className }: SheetClassNames): string {
 
 interface SheetStyle {
   sheetHeight: number;
-  backgroundColor: CSSProperties['backgroundColor'];
-  borderRadius: string | undefined;
   style: CSSProperties | undefined;
 }
 export function getSheetStyle({
   sheetHeight,
-  backgroundColor,
-  borderRadius,
   style,
 }: SheetStyle): CSSProperties {
-  const sheetBorderRadius = `${borderRadius} ${borderRadius} 0 0`;
 
   return {
     height: sheetHeight,
-    backgroundColor: backgroundColor,
-    borderRadius: sheetBorderRadius,
     ...style,
   };
 }

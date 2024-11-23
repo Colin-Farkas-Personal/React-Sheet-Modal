@@ -78,11 +78,6 @@ body:has(#sheetBase),
   padding: var(--sheet-inner-padding);
   color: var(--sheet-base-inner-color--default);
 }
-/*.sheet-base-inner > * {
-  overflow-y: scroll;
-  scrollbar-width: none; 
-  -ms-overflow-style: none;
-}*/
 
 .sheet-top-edge {
   position: absolute;
