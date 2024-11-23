@@ -1,15 +1,36 @@
 import { findLargestSnapPoint, getSnapPointHeights, TSnapPoint } from "../scripts/sheet-snap-points";
 
-export function disableContentScrolling(sheetBaseInnerElement: HTMLElement) {
-  const firstChild = sheetBaseInnerElement.children[0];
+function findScrollableChild(childElements: HTMLCollection): Element | null {
+  let scrollableElement: Element | null = null;
 
-  firstChild?.classList.add('sheet-body-content-fixed');
+  for (let i = 0; i < childElements.length; i++) {
+    const currentChild = childElements[i] as HTMLElement;
+    const currentStyle = window.getComputedStyle(currentChild);
+    
+    if (currentStyle.overflowY) {
+      scrollableElement = currentChild;
+    }
+  }
+
+  return scrollableElement;
+}
+
+export function disableContentScrolling(sheetBaseInnerElement: HTMLElement) {
+  const children = sheetBaseInnerElement.children;
+  const scrollableChild = findScrollableChild(children);
+  
+  if (scrollableChild) {
+    scrollableChild.classList.add('sheet-body-content-fixed');
+  }
 }
 
 export function enableContentScrolling(sheetBaseInnerElement: HTMLElement) {
-  const firstChild = sheetBaseInnerElement.children[0];
+  const children = sheetBaseInnerElement.children;
+  const scrollableChild = findScrollableChild(children);
 
-  firstChild?.classList.remove('sheet-body-content-fixed');
+  if (scrollableChild) {
+    scrollableChild.classList.remove('sheet-body-content-fixed');
+  }
 }
 
 export function isContentScrollTop(event: Event) {

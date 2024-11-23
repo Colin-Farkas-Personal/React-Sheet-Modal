@@ -22,8 +22,11 @@ function App() {
         scaleBackdrop="root"
         showGrabber
       >
+        <div className="sheet-header">
+          <h1>Sheet</h1>
+          <button onClick={closeSheet}>&times;</button>
+        </div>
         <div className="sheet-body">
-          <button onClick={closeSheet}>Close sheet...</button>
           <ul>
             <li>1</li>
             <li>2</li>
