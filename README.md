@@ -236,6 +236,8 @@ Add the `classNames` prop to your sheet component:
 
 Use style attrutes to overwirte the style behaviour with your own style objects.
 
+> **💡 Note-** It is not possible to overwrite the styling for the sheet overlay with the style prop 
+
 The following css class styles the sheet pink with a larger border radius:
 
 ```ts
@@ -245,7 +247,7 @@ const myPinkSheet {
 }
 ```
 
-Add the `classNames` prop to your sheet component:
+Add the `style` prop to your sheet component with your style object:
 
 ```tsx
 <Sheet 
