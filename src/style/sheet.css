@@ -1,18 +1,17 @@
 /* Lightmode */
 :root {
   --sheet-inner-padding: 1rem;
+  --sheet-base-border-radius: 1.25rem;
 
-  --sheet-base-background-color: rgb(247, 247, 247);
-  --sheet-base-inner-color--default: rgb(30, 30, 30);
+  --sheet-base-bg-color: rgb(247, 247, 247);
+  --sheet-base-inner-color: rgb(60, 60, 60);
 }
 
 /* Darkmode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --sheet-inner-padding: 1rem;
-
-    --sheet-base-background-color: rgb(35, 35, 35);
-    --sheet-base-inner-color--default: rgb(255, 255, 255);
+    --sheet-base-bg-color: rgb(35, 35, 35);
+    --sheet-base-inner-color: rgb(255, 255, 255);
   }
 }
 
@@ -45,11 +44,12 @@
   box-sizing: border-box; /* Account for padding, border etc */
 
   min-height: 0;
+  max-height:95%;
   max-width: calc(100%);
   width: 100%;
-  border-radius: 20px 20px 0 0;
+  border-radius: var(--sheet-base-border-radius) var(--sheet-base-border-radius) 0 0;
 
-  background-color: var(--sheet-base-background-color);
+  background-color: var(--sheet-base-bg-color);
   overflow: hidden;
 
   cursor: grab;
@@ -70,16 +70,18 @@ body:has(#sheetBase),
 }
 
 .sheet-base-inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 .sheet-base-inner > * {
   padding: var(--sheet-inner-padding);
-  color: var(--sheet-base-inner-color--default);
+  color: var(--sheet-base-inner-color);
 }
 
 .sheet-top-edge {
+  z-index: 99;
   position: absolute;
   margin: 0 auto;
 
@@ -108,10 +110,17 @@ body:has(#sheetBase),
 
 /* - - - - - APP INTEGRATION - - - - - */
 .sheet-header {
+  position: absolute;
+  top: 0;
   display: flex;
   justify-content: space-between;
-  text-align: center;
+  width: 100%;  
+
   border-bottom: 1px solid grey;
+  text-align: center;
+  
+  -webkit-backdrop-filter: blur(12px); /* Fixes blur for Safari*/
+  backdrop-filter: blur(12px);
 }
 
 .sheet-header h1 {
@@ -138,8 +147,11 @@ body:has(#sheetBase),
   align-items: center;
 
   height: 100%;
+  padding-top: 68px;
+  
   font-size: 64px;
-
   overflow-y: scroll;
+  -webkit-scrollbar-width: none;
+  scrollbar-width: none;
 }
 

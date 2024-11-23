@@ -18,9 +18,7 @@ function App() {
       <Sheet
         isPresented={isSheetOpen}
         onClose={closeSheet}
-        snapPoints={[SnapPoint.medium, SnapPoint.large]}
-        scaleBackdrop="root"
-        showGrabber
+        preventCloseOnResize
       >
         <div className="sheet-header">
           <h1>Sheet</h1>

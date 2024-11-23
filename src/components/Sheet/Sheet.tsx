@@ -19,8 +19,6 @@ interface SheetProps {
   backgroundInteractionEnabled?: boolean;
   showGrabber?: boolean;
   preventCloseOnResize?: boolean;
-  backgroundColor?: CSSProperties['backgroundColor'];
-  borderRadius?: string;
   className?: string;
   style?: CSSProperties;
   children?: React.ReactNode;
@@ -35,8 +33,6 @@ interface SheetProps {
  * @param {boolean} backgroundInteractionEnabled - If true, allows interaction with the background when the sheet is open
  * @param {boolean} showGrabber - Shows a grabber at the top of the sheet
  * @param {boolean} preventCloseOnResize - If true, prevents the sheet from closing when the sheet is resized
- * @param {CSSProperties['backgroundColor']} backgroundColor - Sets the background color of the sheet
- * @param {string} borderRadius - Specifies the border radius of the sheet. Can be any valid CSS size unit
  * @param {string} className - Add a custom styling class to the sheet
  * @param {string} style - Overwrite the style attribute of the sheet
  * @param {React.ReactNode} children - The content to display in the sheet
