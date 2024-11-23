@@ -225,18 +225,14 @@ The following css class styles the sheet pink with a larger border radius:
 Add the `classNames` prop to your sheet component:
 
 ```tsx
-<Sheet 
-  isPresented={isSheetOpen} 
-  onClose={closeSheet} 
-  classNames="my-pink-sheet" 
-/>
+<Sheet isPresented={isSheetOpen} onClose={closeSheet} classNames="my-pink-sheet" />
 ```
 
 ### Style attribute
 
 Use style attrutes to overwirte the style behaviour with your own style objects.
 
-> **💡 Note-** It is not possible to overwrite the styling for the sheet overlay with the style prop 
+> **💡 Note-** It is not possible to overwrite the styling for the sheet overlay with the style prop
 
 The following css class styles the sheet pink with a larger border radius:
 
@@ -250,9 +246,5 @@ const myPinkSheet {
 Add the `style` prop to your sheet component with your style object:
 
 ```tsx
-<Sheet 
-  isPresented={isSheetOpen} 
-  onClose={closeSheet} 
-  style={myPinkSheet} 
-/>
+<Sheet isPresented={isSheetOpen} onClose={closeSheet} style={myPinkSheet} />
 ```

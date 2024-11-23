@@ -1,4 +1,8 @@
-import { findLargestSnapPoint, getSnapPointHeights, TSnapPoint } from "../scripts/sheet-snap-points";
+import {
+  findLargestSnapPoint,
+  getSnapPointHeights,
+  TSnapPoint,
+} from '../scripts/sheet-snap-points';
 
 function findScrollableChild(childElements: HTMLCollection): Element | null {
   let scrollableElement: Element | null = null;
@@ -6,7 +10,7 @@ function findScrollableChild(childElements: HTMLCollection): Element | null {
   for (let i = 0; i < childElements.length; i++) {
     const currentChild = childElements[i] as HTMLElement;
     const currentStyle = window.getComputedStyle(currentChild);
-    
+
     if (currentStyle.overflowY) {
       scrollableElement = currentChild;
     }
@@ -18,7 +22,7 @@ function findScrollableChild(childElements: HTMLCollection): Element | null {
 export function disableContentScrolling(sheetBaseInnerElement: HTMLElement) {
   const children = sheetBaseInnerElement.children;
   const scrollableChild = findScrollableChild(children);
-  
+
   if (scrollableChild) {
     scrollableChild.classList.add('sheet-body-content-fixed');
   }
@@ -33,12 +37,20 @@ export function enableContentScrolling(sheetBaseInnerElement: HTMLElement) {
   }
 }
 
-export function isContentScrollTop(event: Event) {
-  const eventTargetElement = event.target as Element;
-  const eventTargetScrollTop = eventTargetElement.scrollTop;
+export function isContentScrollTop(sheetBaseInnerElement: HTMLElement | null) {
+  if (!sheetBaseInnerElement) {
+    return true;
+  }
+  
+  const children = sheetBaseInnerElement.children;
+  const scrollableChild = findScrollableChild(children);
 
-  if (eventTargetScrollTop > 0) {
-    return false;
+  if (scrollableChild) {
+    const eventTargetScrollTop = scrollableChild.scrollTop;
+
+    if (eventTargetScrollTop > 0) {
+      return false;
+    }
   }
 
   return true;

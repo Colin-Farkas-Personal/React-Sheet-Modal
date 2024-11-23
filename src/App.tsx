@@ -20,6 +20,7 @@ function App() {
         isPresented={isSheetOpen}
         onClose={closeSheet}
         snapPoints={[250, SnapPoint.large]}
+        scaleBackdrop
       >
         <div className="sheet-header">
           <h1>Sheet</h1>

@@ -100,7 +100,7 @@ function useSheetResize(
 
   // Run the resize
   function resize(event: Event) {
-    if (!isMouseDown || !isContentScrollTop(event)) {
+    if (!isMouseDown || !isContentScrollTop(sheetBaseInnerRef.current)) {
       // event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
       return;
     }

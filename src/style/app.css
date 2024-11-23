@@ -43,8 +43,6 @@
   overflow-y: scroll;
   
   -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  -webkit-scrollbar-width: none; /* Safari 9+ */
-  scrollbar-width: none;
   overflow-y: scroll;
   scrollbar-width: none; /* Firefox */
 }
