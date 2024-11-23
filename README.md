@@ -9,11 +9,11 @@
 | ⭐️ Easy integration | 🛠️ Configurable | ⚡️ Zero Dependencies |
 | -------------------- | --------------- | --------------------- |
 
-A ReactJs library for displaying a sheet modal. A type of modal that is displayed from the bottom of the viewport and helps the user perform a scoped task that is closely related to their current context.
+A ReactJs library for displaying a sheet modal - A type of modal that is displayed from the bottom of the viewport and helps the user perform a scoped task that is closely related to their current context.
 
 ## Motivation
 
-React Sheet Modal was created to give web users an equal experience to that of Apples' modal sheet, while also being easy to implement and use. The library uses vanilla CSS. And, since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
+React Sheet Modal was created to give web users an equal experience to that of Apples' modal sheet, while also being easy to implement and use. The library uses vanilla CSS. And since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
 
 ## How to install
 
@@ -25,9 +25,9 @@ npm i react-sheet-modal
 
 ## Table of contents
 
-- [How to use](#how-to-use)
-- [Properties](#properties)
-- [Styling](#styling)
+- [How to use](#🧱-how-to-use)
+- [Properties](#🎛️-properties)
+- [Styling](#🖌️-styling)
 
 ## 🧱 How to use
 
@@ -180,6 +180,7 @@ In your own css or stylesheet include any of the below variables as a `:root` st
   --sheet-base-bg-color: rgb(247, 247, 247);
 }
 ```
+
 > 💡 The values in the above code snippet are the default set values for the sheet.
 
 ---
@@ -206,4 +207,50 @@ Overwrite the border radius of the sheet
 
 ```css
 --sheet-base-border-radius: <size-unit>;
+```
+
+### Class names
+
+Use class names to overwirte the style behaviour with your own classes.
+
+The following css class styles the sheet pink with a larger border radius:
+
+```css
+.my-pink-sheet {
+  background-color: #ffc0cb; /* hexadecimal for pink*/
+  border-radius: 24px;
+}
+```
+
+Add the `classNames` prop to your sheet component:
+
+```tsx
+<Sheet 
+  isPresented={isSheetOpen} 
+  onClose={closeSheet} 
+  classNames="my-pink-sheet" 
+/>
+```
+
+### Style attribute
+
+Use style attrutes to overwirte the style behaviour with your own style objects.
+
+The following css class styles the sheet pink with a larger border radius:
+
+```ts
+const myPinkSheet {
+  backgroundColor: '#ffc0cb;' // hexadecimal for pink
+  borderRadius: '24px';
+}
+```
+
+Add the `classNames` prop to your sheet component:
+
+```tsx
+<Sheet 
+  isPresented={isSheetOpen} 
+  onClose={closeSheet} 
+  style={myPinkSheet} 
+/>
 ```

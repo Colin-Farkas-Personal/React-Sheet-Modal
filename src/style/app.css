@@ -1,3 +1,9 @@
+:root {
+  --sheet-inner-padding: 1rem;
+  --sheet-base-border-radius: 1.25rem;
+  --sheet-base-bg-color: rgb(247, 247, 247);
+}
+
 /* - - - - - APP INTEGRATION - - - - - */
 .sheet-header {
   position: absolute;
