@@ -1,7 +1,16 @@
 {
   "name": "react-sheet-modal",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A modal sheet for ReactJs - The IOS experience brought to the web",
+  "repository": {
+    "url": "https://github.com/Colin-Farkas-Personal/React-Sheet-Modal"
+  },
+  "keywords": ["ReactJs", "modal", "sheet"],
+  "author": {
+    "name": "Colin Farkas",
+    "email": "colin.farkas@hotmail.se"
+  },
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
