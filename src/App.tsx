@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Sheet, SnapPoint } from '../';
 import './style/app.css';
+import { Sheet } from 'react-sheet-modal';
 
 function App() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -15,14 +15,7 @@ function App() {
   return (
     <>
       <button onClick={openSheet}>Open sheet</button>
-      <Sheet
-        isPresented={isSheetOpen}
-        onClose={closeSheet}
-        snapPoints={[SnapPoint.large]}
-        scaleBackdrop
-      >
-        <h1>Sheet</h1>
-      </Sheet>
+      <Sheet isPresented={isSheetOpen} onClose={closeSheet} />
     </>
   );
 }
