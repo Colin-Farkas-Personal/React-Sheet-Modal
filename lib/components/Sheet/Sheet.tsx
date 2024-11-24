@@ -28,7 +28,7 @@ interface SheetProps {
  * JSX Component for displaying a sheet modal
  * @param {boolean} isPresented - Whether the sheet is displayed
  * @param {() => void} onClose - Callback for closing the sheet
- * @param {TSnapPoint[]} presentationDetents - Set of snapping points for the sheet
+ * @param {TSnapPoint[]} snapPoints - Set of snapping points for the sheet
  * @param {string | boolean} scaleBackdrop - When included, adds the effect of scaling the backdrop when the sheet is open
  * @param {boolean} backgroundInteractionEnabled - If true, allows interaction with the background when the sheet is open
  * @param {boolean} showGrabber - Shows a grabber at the top of the sheet
@@ -38,7 +38,7 @@ interface SheetProps {
  * @param {React.ReactNode} children - The content to display in the sheet
  * @returns
  */
-function Sheet({
+export function Sheet({
   isPresented,
   onClose,
   snapPoints = [SnapPoint.large],
@@ -100,4 +100,3 @@ function Sheet({
   );
 }
 
-export default Sheet;

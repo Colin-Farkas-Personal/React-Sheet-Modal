@@ -1,4 +1,4 @@
-import { createContext, createRef, ReactNode, RefObject, useContext, useState } from 'react';
+import { createContext, createRef, ReactNode, RefObject, useContext } from 'react';
 
 type TElementContext = {
   sheetOverlayRef: RefObject<HTMLSpanElement>;

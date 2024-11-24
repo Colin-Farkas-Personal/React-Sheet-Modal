@@ -1,6 +1,6 @@
 ![Library Illustration](/introduction/images/reactLibraryIllustration.png 'Main Illustration')
 
-![NPM Version](https://img.shields.io/npm/v/:react-sheet-modal)
+![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
 
 # React Sheet Modal
 
