@@ -12,7 +12,6 @@ export function calculateSheetStylePercent(
   isReversed: boolean = false
 ): number {
   const snapPointHeights = getSnapPointHeights(snapPoints);
-  const snapPointHeightsOrdered = snapPointHeights.sort((a, b) => a - b);
 
   const fullOpacityHeight = findSmallestSnapPoint(snapPointHeights);
 

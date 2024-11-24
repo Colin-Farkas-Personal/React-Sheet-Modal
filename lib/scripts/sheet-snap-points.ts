@@ -18,7 +18,6 @@ function getSnapPointHeight(snapPoint: TSnapPoint): string | number {
 export const SnapPoint = {
   large: 'large',
   medium: 'medium',
-  fitContent: 'fit-content',
 } as const;
 export type TSnapPoint = (typeof SnapPoint)[keyof typeof SnapPoint] | number;
 
