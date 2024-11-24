@@ -1,6 +1,6 @@
 {
   "name": "react-sheet-modal",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "description": "A modal sheet for ReactJs - The IOS experience brought to the web",
   "repository": {
