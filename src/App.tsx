@@ -15,7 +15,12 @@ function App() {
   return (
     <>
       <button onClick={openSheet}>Open sheet</button>
-      <Sheet isPresented={isSheetOpen} onClose={closeSheet} />
+      <Sheet isPresented={isSheetOpen} onClose={closeSheet}>
+        <div className="sheet-header">
+          <h1>Maps</h1>
+          <button onClick={closeSheet}>X</button>
+        </div>
+      </Sheet>
     </>
   );
 }

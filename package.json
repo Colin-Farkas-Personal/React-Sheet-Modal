@@ -53,8 +53,5 @@
     "vite": "^5.4.9",
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-lib-inject-css": "^2.1.1"
-  },
-  "dependencies": {
-    "react-sheet-modal": "^1.0.1"
   }
 }
