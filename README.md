@@ -1,5 +1,5 @@
 
-![](/introduction/videos/main-example-01.mov)
+![](/introduction//videos/main-example-01.gif)
 
 ![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
 
