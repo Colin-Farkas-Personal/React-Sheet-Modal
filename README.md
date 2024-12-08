@@ -1,5 +1,5 @@
 <div style="text-align: center;" align="center">
-  <img src="/introduction/videos/main-example-01.gif" alt="Demo Video" width="200" height="400" style="aspect-ratio: 19.5 / 9; margin-bottem: 1rem;" radius="10"/>
+  <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>
   <br />
   <br />
 
