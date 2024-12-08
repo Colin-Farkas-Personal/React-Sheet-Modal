@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+.app-flights {
+  max-height: 100lvh;
+  height: 100%;
+
+  background-color: #fffaf5;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Raleway', sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  span {
+    font-family: 'Hind', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+  }
+}

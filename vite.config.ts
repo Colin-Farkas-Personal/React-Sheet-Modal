@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
+import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -10,6 +11,15 @@ export default defineConfig({
     react(),
     libInjectCss(),
     dts({ tsconfigPath: resolve(__dirname, 'tsconfig.lib.json') }),
+    svgr({
+      // svgr options
+      svgrOptions: {
+        ref: true, // Allows forwarding refs
+        svgo: false, // Disables SVGO optimization
+        titleProp: true, // Enables the `title` prop for accessibility
+      },
+      include: '**/*.svg', // Targets all SVG files
+    }),
   ],
   build: {
     copyPublicDir: false,

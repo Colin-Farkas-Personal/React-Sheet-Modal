@@ -1,4 +1,5 @@
-![Library Illustration](/introduction/images/reactLibraryIllustration.png 'Main Illustration')
+
+![](/introduction/videos/main-example-01.mov)
 
 ![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
 

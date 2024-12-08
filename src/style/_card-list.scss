@@ -1,0 +1,24 @@
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: .375rem;
+}
+
+.card-list-item {
+    padding: .875rem 1.25rem;
+    border-radius: .625rem;
+    background-color: #F5F0EB;
+
+    & > * {
+        display: block;
+
+        font-size: 1rem;
+        font-weight: 600;
+        color: #AFA8A1;
+    }
+
+    &-locations {
+        display: flex;
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,45 @@
+.flights-main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    margin: 0.25rem 0.25rem 2.5rem;
+    padding: 1rem;
+    max-height: 40lvh;
+    height: 280px;
+    border-radius: 6.5rem 6.5rem 1.25rem 1.25rem;
+
+    background-image: url('../assets/orange-clouds.avif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: #FFFAF5;
+    }
+}
+
+.divider {
+    height: 1px;
+    background: #D2CDC8;
+    font-size: 0;
+    border: 0;
+}
+
+.flights-prior {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+
+    padding: 1rem;
+    
+    h2 {
+        font-size: 2rem;
+        font-weight: 500;
+        color: #6D5841;
+    }
+}
