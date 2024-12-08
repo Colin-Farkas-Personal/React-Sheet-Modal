@@ -2,7 +2,6 @@
   <img src="/introduction/videos/main-example-01.gif" alt="Demo Video" width="200" height="400" style="aspect-ratio: 19.5 / 9; margin-bottem: 1rem;" radius="10"/>
   <br />
   <br />
-  <br />
 
   ![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
 </div>
