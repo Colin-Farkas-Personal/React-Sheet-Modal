@@ -1,10 +1,6 @@
-<div style="text-align: center;" align="center">
-  <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>
-  <br />
-  <br />
+<img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>
 
-  ![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
-</div>
+![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
 
 # React Sheet Modal
 
