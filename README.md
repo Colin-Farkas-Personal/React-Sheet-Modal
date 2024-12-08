@@ -1,5 +1,5 @@
 
-<div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+<div style="text-align: center;">
   <img src="/introduction/videos/main-example-01.gif" alt="Demo Video" width="200" height="400" style="aspect-ratio: 19.5 / 9; border-radius: 2.2rem;"/>
 
   ![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
