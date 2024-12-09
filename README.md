@@ -1,10 +1,13 @@
-<p align="center" style="text-align: center;">
-  <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="400px" height="auto"/> 
+
+<p id="readme-cover-container" align="center" padding="1" style="text-align: center; padding: 1rem;">
+  <br /><br />
+  <img border="10" src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="400px" height="auto"/> 
   <br /><br />
   <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>  
   <br /><br />
   <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
-</p>
+  <br /><br />
+ </p>
 
 # React Sheet Modal
 
