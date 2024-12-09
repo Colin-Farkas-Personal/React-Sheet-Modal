@@ -1,14 +1,12 @@
 
 <p align="center">
-  <kbd>
-    <br /><br />
-    <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="400px" height="auto"/> 
-    <br /><br />
-    <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>  
     <br /><br />
     <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
     <br /><br />
-  </kbd>
+    <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="40%" height="auto"/> 
+    <br /><br />
+    <img align="center"src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>  
+    <br /><br />
  </p>
 
 # React Sheet Modal
