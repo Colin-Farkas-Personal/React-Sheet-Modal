@@ -11,7 +11,7 @@
 
 # React Sheet Modal
 
-`A modal sheet for ReactJs - The IOS experience brought to the web`
+`An authentic modal sheet for ReactJs - Bringing the ()iOS experience to the web`
 
 | ⭐️ Easy integration | 🛠️ Configurable | ⚡️ Zero Dependencies |
 | -------------------- | --------------- | --------------------- |
