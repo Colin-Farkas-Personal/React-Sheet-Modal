@@ -1,6 +1,19 @@
-<img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>
+<div 
+  style="display: flex; 
+  flex-direction: column; 
+  align-items: center;
+  gap: 1rem; 
+  background-color: rgb(245,245,245, 0.04);
+  margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  ">
+  <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" align="center"/>
+  <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400" align="center"/>
+  
+  <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge" align="center"/>
 
-![NPM Version](https://img.shields.io/npm/v/react-sheet-modal)
+</div>
 
 # React Sheet Modal
 
