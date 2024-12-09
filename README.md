@@ -1,7 +1,11 @@
 <p align="center">
-  <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo"/> 
+  <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="50%" height="50%"/> 
   
+  <br/>
+
   <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>
+  
+  <br/>
   
   <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
 </p>
