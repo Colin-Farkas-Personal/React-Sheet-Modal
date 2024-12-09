@@ -1,13 +1,9 @@
-<p align="center">
-  <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="400px" height="auto"/> 
-  
+<p style="text-align: center;">
+  <img align="center" src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="400px" height="auto"/> 
   <br /><br />
-
-  <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>  
-
+  <img align="center" src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>  
   <br /><br />
-
-  <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
+  <img align="center" src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
 </p>
 
 # React Sheet Modal
