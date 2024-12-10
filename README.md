@@ -1,4 +1,3 @@
-
 <p align="center">
     <br /><br />
     <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
@@ -21,6 +20,11 @@ A ReactJs library for displaying a sheet modal - A type of modal that is display
 ## Motivation
 
 React Sheet Modal was created to give web users an equal experience to that of Apples' modal sheet, while also being easy to implement and use. The library uses vanilla CSS. And since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
+
+
+**If you find the component useful, consider starring the project on GitHub!**
+
+[![Github star button](/introduction/images/GithubStarButton.png)](https://github.com/Colin-Farkas-Personal/React-Sheet-Modal)
 
 ## How to install
 
