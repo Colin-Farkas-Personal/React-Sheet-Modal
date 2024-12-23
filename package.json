@@ -27,6 +27,8 @@
   ],
   "scripts": {
     "dev": "vite",
+    "dev:app1": "vite --mode app_1",
+    "dev:app2": "vite --mode app_2",
     "build": "tsc -b ./tsconfig.lib.json && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

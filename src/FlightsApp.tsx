@@ -5,7 +5,7 @@ import MainCard from './components/Card/MainCard';
 import TicketSheet from './components/Sheet/TicketSheet';
 import './style/app.css';
 
-function App() {
+function FlightsApp() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
   function openSheet() {
@@ -41,4 +41,4 @@ function App() {
   );
 }
 
-export default App;
+export default FlightsApp;
