@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useElementContext } from '../contexts/elementContext';
 import {
   isContentScrollTop,
+  setScrollableElement,
   updateScrolling
 } from '../helpers/contentScrolling';
 import { enableTargetAction } from '../helpers/preventTargetAction';
@@ -40,10 +41,17 @@ function useSheetResize(
   const [mouseCurrentY, setMouseCurrentY] = useState<number>(0);
   const [mousePreviousY, setMousePreviousY] = useState<number>(0);
 
+  // Find and set the scrollable body element
+  useEffect(() => {
+    if (sheetBaseInnerRef.current) {
+      setScrollableElement(sheetBaseInnerRef.current as HTMLElement);
+    }
+  }, [sheetBaseInnerRef.current]);
+
   // Sync the height with the current height
   useEffect(() => {
     setResizeHeight(currentHeight);
-    updateScrolling(snapPoints, resizeHeight, sheetBaseInnerRef.current)
+    updateScrolling(snapPoints, resizeHeight)
   }, [currentHeight]);
 
   // Update the height
@@ -100,11 +108,11 @@ function useSheetResize(
 
   // Run the resize
   function resize(event: Event) {
-    if (!isMouseDown || !isContentScrollTop(sheetBaseInnerRef.current)) {
+    if (!isMouseDown || !isContentScrollTop()) {
       // event.preventDefault(); // Prevent sheet from closing after resize on sheet overlay
       return;
     }
-
+    
     if (mouseCurrentY !== 0) {
       setMousePreviousY(mouseCurrentY);
     }

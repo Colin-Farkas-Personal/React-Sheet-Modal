@@ -18,6 +18,7 @@
   },
   "type": "module",
   "main": "dist/main.js",
+  "module": "dist/main.js",
   "types": "dist/main.d.ts",
   "files": [
     "dist"
@@ -30,6 +31,7 @@
     "dev:app1": "vite --mode app_1",
     "dev:app2": "vite --mode app_2",
     "build": "tsc -b ./tsconfig.lib.json && vite build",
+    "build:watch": "tsc -b ./tsconfig.lib.json && vite build --watch",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepublishOnly": "npm run build"
@@ -44,18 +46,20 @@
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.1.0",
     "eslint": "^9.13.0",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.13",
     "globals": "^15.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "sass": "^1.80.4",
+    "sass": "^1.83.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.10.0",
     "vite": "^5.4.9",
     "vite-plugin-dts": "^4.3.0",
     "vite-plugin-lib-inject-css": "^2.1.1",
+    "vite-plugin-restart": "^0.4.2",
     "vite-plugin-svgr": "^4.3.0"
   }
 }

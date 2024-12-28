@@ -4,7 +4,16 @@
     <br /><br />
     <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="40%" height="auto"/> 
     <br /><br />
-    <img align="center"src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video" width="200" height="400"/>  
+    <table>
+      <tr>
+        <td align="center">
+          <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video 1" width="200" height="400"/>
+        </td>
+        <td align="center">
+          <img src="/introduction/videos/main-example-02-higher.gif" alt="Demo Video 2" width="200" height="400"/>
+        </td>
+      </tr>
+    </table>
     <br /><br />
  </p>
 
@@ -20,7 +29,6 @@ A ReactJs library for displaying a sheet modal - A type of modal that is display
 ## Motivation
 
 React Sheet Modal was created to give web users an equal experience to that of Apples' modal sheet, while also being easy to implement and use. The library uses vanilla CSS. And since the transitions for the sheet are fully calculated through javascript, it does not require any additional npm-dependencies do be added.
-
 
 **If you find the component useful, consider starring the project on GitHub!**
 

@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
 import dts from 'vite-plugin-dts';
+import ViteRestart from 'vite-plugin-restart';
 import svgr from 'vite-plugin-svgr';
 
 export default ({ mode }: { mode: ConfigEnv['mode'] }) => {
@@ -10,14 +11,14 @@ export default ({ mode }: { mode: ConfigEnv['mode'] }) => {
   const env = loadEnv(mode, process.cwd());
   process.env = { ...process.env, ...env };
 
-  // Make sure to log after the env is loaded
-  console.log(process.env.VITE_PORT); // Should show your port value
-
   return defineConfig({
     plugins: [
       react(),
       libInjectCss(),
       dts({ tsconfigPath: resolve(__dirname, 'tsconfig.lib.json') }),
+      ViteRestart({
+        restart: ['/lib/**'],
+      }),
       svgr({
         svgrOptions: {
           ref: true,
@@ -34,11 +35,14 @@ export default ({ mode }: { mode: ConfigEnv['mode'] }) => {
         formats: ['es'],
       },
       rollupOptions: {
-        external: ['react', 'react/jsx-runtime'],
         output: {
+          assetFileNames: 'assets/[name][extname]',
           entryFileNames: '[name].js',
-        },
+        }
       },
+    },
+    resolve: {
+      preserveSymlinks: true,
     },
   });
 };

@@ -4,14 +4,26 @@ import {
   TSnapPoint,
 } from '../scripts/sheet-snap-points';
 
+export let scrollableElement: Element | null = null;
+
+export function setScrollableElement(sheetBaseInnerElement: HTMLElement): void {
+  const children = sheetBaseInnerElement.children;
+  const scrollableChild = findScrollableChild(children);
+
+  if (scrollableChild) {
+    scrollableElement = scrollableChild;
+  }
+}
+
 function findScrollableChild(childElements: HTMLCollection): Element | null {
   let scrollableElement: Element | null = null;
-
+  
   for (let i = 0; i < childElements.length; i++) {
     const currentChild = childElements[i] as HTMLElement;
-    const currentStyle = window.getComputedStyle(currentChild);
-
-    if (currentStyle.overflowY) {
+    const currentStyleOverflowY = window.getComputedStyle(currentChild).overflowY;
+    
+    
+    if (currentStyleOverflowY && currentStyleOverflowY === 'scroll') {
       scrollableElement = currentChild;
     }
   }
@@ -19,34 +31,21 @@ function findScrollableChild(childElements: HTMLCollection): Element | null {
   return scrollableElement;
 }
 
-export function disableContentScrolling(sheetBaseInnerElement: HTMLElement) {
-  const children = sheetBaseInnerElement.children;
-  const scrollableChild = findScrollableChild(children);
-
-  if (scrollableChild) {
-    scrollableChild.classList.add('sheet-body-content-fixed');
+export function disableContentScrolling() {
+  if (scrollableElement) {
+    scrollableElement.classList.add('sheet-body-content-fixed');
   }
 }
 
-export function enableContentScrolling(sheetBaseInnerElement: HTMLElement) {
-  const children = sheetBaseInnerElement.children;
-  const scrollableChild = findScrollableChild(children);
-
-  if (scrollableChild) {
-    scrollableChild.classList.remove('sheet-body-content-fixed');
+export function enableContentScrolling() {
+  if (scrollableElement) {
+    scrollableElement.classList.remove('sheet-body-content-fixed');
   }
 }
 
-export function isContentScrollTop(sheetBaseInnerElement: HTMLElement | null) {
-  if (!sheetBaseInnerElement) {
-    return true;
-  }
-  
-  const children = sheetBaseInnerElement.children;
-  const scrollableChild = findScrollableChild(children);
-
-  if (scrollableChild) {
-    const eventTargetScrollTop = scrollableChild.scrollTop;
+export function isContentScrollTop() {
+  if (scrollableElement) {
+    const eventTargetScrollTop = scrollableElement.scrollTop;
 
     if (eventTargetScrollTop > 0) {
       return false;
@@ -60,9 +59,8 @@ const MAX_HEIGHT_MARGIN = 1;
 export function updateScrolling(
   snapPoints: TSnapPoint[],
   resizeHeight: number,
-  sheetBaseInnerElement: HTMLElement | null
 ) {
-  if (!sheetBaseInnerElement) {
+  if (!scrollableElement) {
     return;
   }
 
@@ -74,8 +72,8 @@ export function updateScrolling(
   const largestSnapPoint = findLargestSnapPoint(snapPointHeights);
 
   if (resizeHeight >= largestSnapPoint - MAX_HEIGHT_MARGIN) {
-    enableContentScrolling(sheetBaseInnerElement);
+    enableContentScrolling();
   } else if (resizeHeight < largestSnapPoint) {
-    disableContentScrolling(sheetBaseInnerElement);
+    disableContentScrolling();
   }
 }

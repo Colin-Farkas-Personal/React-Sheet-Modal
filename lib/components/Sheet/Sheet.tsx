@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, ReactNode } from 'react';
 import ReactDOM from 'react-dom';
 import { useElementContext } from '../../contexts/elementContext';
 import {
@@ -21,7 +21,7 @@ interface SheetProps {
   preventCloseOnResize?: boolean;
   className?: string;
   style?: CSSProperties;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 /**
@@ -35,7 +35,7 @@ interface SheetProps {
  * @param {boolean} preventCloseOnResize - If true, prevents the sheet from closing when the sheet is resized
  * @param {string} className - Add a custom styling class to the sheet
  * @param {string} style - Overwrite the style attribute of the sheet
- * @param {React.ReactNode} children - The content to display in the sheet
+ * @param {ReactNode} children - The content to display in the sheet
  * @returns
  */
 export function Sheet({
@@ -49,7 +49,7 @@ export function Sheet({
   className = '',
   style,
   children,
-}: SheetProps) {
+}: SheetProps): React.ReactElement {
   const { sheetOverlayRef, sheetElementRef, sheetBaseInnerRef } = useElementContext();
   const { sheetHeight, sheetOverlayOpacity, isSheetClosed, closeSheet } = useSheetManager(
     scaleBackdrop,
@@ -60,7 +60,7 @@ export function Sheet({
   );
 
   if (isSheetClosed) {
-    return false;
+    return <React.Fragment />;
   }
 
   // STYLES AND CLASSES
@@ -82,7 +82,7 @@ export function Sheet({
   return ReactDOM.createPortal(
     <>
       <span
-        id="sheetOverlay"
+        id="sheetOverlay test123"
         ref={sheetOverlayRef}
         className={overlayClassNames}
         onClick={closeSheet}
