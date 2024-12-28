@@ -4,7 +4,7 @@
     <br /><br />
     <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="40%" height="auto"/> 
     <br /><br />
-    <table>
+    <table align="center">
       <tr>
         <td align="center">
           <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video 1" width="200" height="400"/>
