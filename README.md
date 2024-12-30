@@ -2,15 +2,15 @@
     <br /><br />
     <img src="https://img.shields.io/npm/v/react-sheet-modal" alt="NPM version badge"/>
     <br /><br />
-    <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="40%" height="auto"/> 
+    <img src="/introduction/images/reactLibraryIllustration.png" alt="Logo" width="400" height="auto"/> 
     <br /><br />
-    <table align="center">
+    <table align="center" width="50">
       <tr>
-        <td align="center">
-          <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video 1" width="200" height="400"/>
+        <td align="center" width="300">
+          <img src="/introduction/videos/main-example-01-higher.gif" alt="Demo Video 1" width="100%" height="auto"/>
         </td>
-        <td align="center">
-          <img src="/introduction/videos/main-example-02-higher.gif" alt="Demo Video 2" width="200" height="400"/>
+        <td align="center" width="300">
+          <img src="/introduction/videos/main-example-02-higher.gif" alt="Demo Video 2" width="100%" height="auto"/>
         </td>
       </tr>
     </table>
