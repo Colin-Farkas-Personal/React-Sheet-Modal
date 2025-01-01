@@ -1,7 +1,7 @@
 {
   "name": "react-sheet-modal",
   "private": false,
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "An authentic modal sheet for ReactJs - Bringing the ()iOS experience to the web",
   "repository": {
     "url": "git+https://github.com/Colin-Farkas-Personal/React-Sheet-Modal.git"
