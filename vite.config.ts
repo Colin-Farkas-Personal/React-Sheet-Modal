@@ -31,18 +31,16 @@ export default ({ mode }: { mode: ConfigEnv['mode'] }) => {
     build: {
       copyPublicDir: false,
       lib: {
-        entry: resolve(__dirname, 'lib/main.ts'),
-        formats: ['es'],
+        entry: resolve(__dirname, './lib/main.ts'),
+        formats: ['es'], // ES module format for libraries
       },
       rollupOptions: {
+        external: ['react', 'react/jsx-runtime'],
         output: {
           assetFileNames: 'assets/[name][extname]',
           entryFileNames: '[name].js',
-        }
+        },
       },
-    },
-    resolve: {
-      preserveSymlinks: true,
     },
   });
 };
